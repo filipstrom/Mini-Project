@@ -16,7 +16,7 @@ def most_common(dct, n):
 
 # Reads all the words and returns a list
 def read_words(path):
-    with open(path, "r") as file:
+    with open(path, "r", encoding="utf-8") as file:
         lst = file.read().split()
         newlst = []
         for e in lst:
