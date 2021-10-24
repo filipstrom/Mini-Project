@@ -20,7 +20,7 @@ def read_words(path):
 def count_words(lst):
     map = bst.BstMap()
     for n in lst:
-        v = map.get2(n)
+        v = map.get(n)
         value = 1 if v is None else (v + 1)
         map.put(n, value)
     return map

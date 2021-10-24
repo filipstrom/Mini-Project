@@ -61,11 +61,10 @@ class HashSet:
 
     # Returns True if word in set, otherwise False
     def contains(self, word):
-        for e in self.buckets:
-            for s in e:
-                if s == word:
-                    return True
-        return False
+
+        length = len(self.buckets)
+        position = self.get_hash(word) % length
+        return (word in self.buckets[position])
 
     # Returns current size of bucket list
     def bucket_list_size(self):
