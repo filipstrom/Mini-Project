@@ -19,21 +19,10 @@ def read_words(path):
 # Counts the amount of accourenses for all the words
 def count_words(lst):
     map = bst.BstMap()
-    i = 0
-    values = []
-    keys = []
     for n in lst:
-        i += 1
-        if n in keys:
-            values[keys.index(n)] += 1
-        else:
-            keys.append(n)
-            values.append(1)
-        #if i % 1000 == 0:
-            #print(i, "nästan klar")
-        
-    for i in range(len(keys)):
-        map.put(keys[i], values[i])
+        v = map.get2(n)
+        value = 1 if v is None else (v + 1)
+        map.put(n, value)
     return map
 
 # Highest value in dictonary and print the key
@@ -64,7 +53,6 @@ print("Max bucket size:", holy_hash_set.max_bucket_size())
 holy_bst = count_words(lst_holy_words)
 print("Max depth in bts:", holy_bst.max_depth())
 most_common(holy_bst, 10)
-
 
 
 

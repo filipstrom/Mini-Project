@@ -66,6 +66,17 @@ class Node:
             value = self.right.get(key)
         return value
 
+    def get2(self, key):
+        value = None
+        if self.key == key:
+            return self.value
+        elif self.left is not None and self.key > key:
+            value = self.left.get2(key)
+        elif self.right is not None and self.key < key:
+            value = self.right.get2(key)
+        return value
+
+
     def max_depth(self):
         depth_left = 0
         depth_right = 0
@@ -128,11 +139,11 @@ class BstMap:
 
     # Returns the value for a given key. Returns None
     # if key doesn't exist (or map is empty)
-    def get(self, key):
+    def get2(self, key):
         if self.root is None:
             return None
         else:
-            return self.root.get(key)
+            return self.root.get2(key)
 
     # Returns the maximum tree depth. That is, the length
     # (counted in nodes) of the longest root-to-leaf path
