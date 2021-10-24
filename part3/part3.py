@@ -34,8 +34,8 @@ def most_common(bist, n):
 
 
 # Getting the paths
-path_holy = os.getcwd() + "\\part3\\holy_grail_words.txt"
-path_eng = os.getcwd() + "\\part3\\eng_news_words.txt"
+path_holy = os.getcwd() + "\\part1\\test_holy.txt"
+path_eng = os.getcwd() + "\\part1\\test_100K.txt"
 
 
 # Unique words and 10 most used words in Holy grail
