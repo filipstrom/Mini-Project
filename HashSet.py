@@ -1,7 +1,5 @@
 from dataclasses import dataclass
 from typing import List
-from sympy import *
-import sympy
 
 @dataclass
 class HashSet:
