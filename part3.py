@@ -33,41 +33,31 @@ def most_common(bist, n):
         print(k, "    \t", v)
 
 
+def make_HashSet(lst):
+    hash_set = hs.HashSet()
+    hash_set.init()
+    for e in lst:
+        hash_set.add(e)
+    return hash_set
+
+
+def info_print(path, title):
+    # Unique words and 10 most used words in Holy grail
+    print("_________________________")
+    print("     " + title)
+    words_lst = read_words(path)
+    hash_set = make_HashSet(words_lst)
+    print("Hash set size:", hash_set.get_size())
+    print("Max bucket size:", hash_set.max_bucket_size())
+
+    # Getting the most common
+    bst = count_words(words_lst)
+    print("Max depth in bst:", bst.max_depth())
+    most_common(bst, 10)
+
+
 # Getting the paths
 path_holy = os.getcwd() + "\\test_holy.txt"
 path_eng = os.getcwd() + "\\test_100K.txt"
-
-
-# Unique words and 10 most used words in Holy grail
-print("_________________________")
-print("     holy_grail_words.txt")
-lst_holy_words = read_words(path_holy)
-holy_hash_set = hs.HashSet()
-holy_hash_set.init()
-for e in lst_holy_words:
-    holy_hash_set.add(e)
-print("Hash set size:", holy_hash_set.get_size())
-print("Max bucket size:", holy_hash_set.max_bucket_size())
-
-# Getting the most common
-holy_bst = count_words(lst_holy_words)
-print("Max depth in bts:", holy_bst.max_depth())
-most_common(holy_bst, 10)
-
-
-
-
-print("_________________________")
-print("     Eng_news_words.txt")
-lst_eng_words = read_words(path_eng)
-eng_hash_set = hs.HashSet()
-eng_hash_set.init()
-for e in lst_eng_words:
-    eng_hash_set.add(e)
-print("Hash set size:", eng_hash_set.get_size())
-print("Max bucket size:", eng_hash_set.max_bucket_size())
-
-# Getting the most common
-eng_bst = count_words(lst_eng_words)
-print("Max depth in bts:", eng_bst.max_depth())
-most_common(eng_bst, 10)
+info_print(path_holy, "holy_grail_words.txt")
+info_print(path_eng, "Eng_news_words.txt")
