@@ -31,12 +31,11 @@ def plot_word_length(bst, string):
         lstx.append(i[0])
         lsty.append(i[1])
     plt.bar(lstx, lsty)
-    plt.xticks(lstx, lstx)  # Give each position a label
+    plt.xticks(lstx, lstx) # Give each position a label
     plt.title('words per wordlength for ' + string)
     plt.xlabel("word length")
     plt.ylabel("word count")
     plt.show()
-
 
 def unique_words(lst, title):
     words = hs.HashSet()   # Create new empty HashSet
@@ -56,9 +55,8 @@ def unique_words(lst, title):
     plt.ylabel("unique words")
     plt.show()
 
-
-path_holy = os.getcwd() + "\\test_holy.txt"
-path_eng = os.getcwd() + "\\test_100K.txt"
+path_holy = os.getcwd() + "\\part1\\test_holy.txt"
+path_eng = os.getcwd() + "\\part1\\test_100K.txt"
 
 holy_words = read_words(path_holy)
 eng_words = read_words(path_eng)

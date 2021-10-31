@@ -17,6 +17,7 @@ def read_words(path):
                 newlst.append(e)
     return newlst
 
+
 def count_words(lst, percent):
     map = bst.BstMap()
     i = 0

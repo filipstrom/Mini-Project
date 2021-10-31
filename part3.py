@@ -1,4 +1,3 @@
-import sys
 import HashSet as hs
 import BstMap as bst
 import os
