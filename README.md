@@ -43,18 +43,18 @@ hash_set.size()
 
 **holy grail words**                 **english new words**             
 
-|most common words   | count    ||most common words | count|
-|:------------------:|:-----:||:------------------:|:-----:|
-| arthur             | 261|| their           |6143|
-|launcelot           | 101| |about            |4606|
-|knight              | 84 ||there            |3926|
-|galahad             | 81 ||would            |3877|
-|father              | 74 ||people           |3799|
-|bedevere            | 68 ||which            |3571|
-|knights             | 65 ||after            |3014|
-|robin               | 58 ||years            |2984|
-|guard               | 58 ||first            |2887|
-|right               | 57 ||other            |2754|
+|most common words   | count    |most common words | count|
+|:------------------:|:-----:|:------------------:|:-----:|
+| arthur             | 261| their           |6143|
+|launcelot           | 101| about            |4606|
+|knight              | 84 |there            |3926|
+|galahad             | 81 |would            |3877|
+|father              | 74 |people           |3799|
+|bedevere            | 68 |which            |3571|
+|knights             | 65 |after            |3014|
+|robin               | 58 |years            |2984|
+|guard               | 58 |first            |2887|
+|right               | 57 |other            |2754|
 
 
 
