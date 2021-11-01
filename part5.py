@@ -1,10 +1,19 @@
-from types import new_class
 import BstMap as bst
 import os
 import time
 import matplotlib.pyplot as plt
 import HashSet as hs
+input()
 
+
+def read_words(path):
+    with open(path, "r",  encoding="utf-8") as file:
+        lst = file.read().split()
+        newlst = []
+        for e in lst:
+            if len(e):
+                newlst.append(e)
+    return newlst
 
 
 def menu():
@@ -22,99 +31,68 @@ def menu():
         menu()
 
 
-def time_to_add_hs():
+def part2():
+    print("Part 2")
     time_lst = []
     maxbucket_lst = []
+    set_size_lst = []
     hash_set = hs.HashSet()
     hash_set.init()
-    start = time.time()
     for e in range(len(lst_eng_words)):
+        if e % 1000 == 0:
+            set_size_lst.append(e)
+            for i in range(1000):
+                start_time = time.time()
+                hash_sett_copy = hash_set
+                hash_sett_copy.add(lst_eng_words[e-1000])
+                sum_time = time.time() - start_time
+            time_lst.append(sum_time/1000)
         hash_set.add(lst_eng_words[e])
-        time_lst.append(time.time()-start) 
-        
-        if e % 5000 == 0:
+
+        if e % 1000 == 0:
             print(e / len(lst_eng_words) * 100)
             maxbucket_lst.append(hash_set.max_bucket_size())
-        
-        start = time.time()
-    
-
     plt.subplot(1, 2, 1)
-    plt.plot([n for n in range(len(time_lst))], time_lst)
-    plt.title('"added words" vs "unique words" in ' + "eng=")
-    plt.xlabel("How long the thing is")
-    plt.ylabel("how long time it took")
+    plt.plot(set_size_lst, time_lst)
+    plt.title('"time to add element" vs "hashset size"')
+    plt.xlabel("hashset size")
+    plt.ylabel("time")
 
     plt.subplot(1, 2, 2)
-    plt.plot([n for n in range(len(maxbucket_lst))], maxbucket_lst)
-    plt.title('"added words" vs "unique words" in ' + "eng=")
-    plt.xlabel("How long the thing is")
-    plt.ylabel("how long time it took")
+    plt.plot(set_size_lst, maxbucket_lst)
+    plt.title('"maxbucket size" vs "hashset size" in ' + "eng=")
+    plt.xlabel("hashset size")
+    plt.ylabel("maxbucket size")
     plt.show()
-
-    return time_lst
-
-
-def part2():
-    print("Part 2") 
-    lst = time_to_add_hs()
-   
-    
-
-
-
 
 
 def part1():
     print("Part 1")
-    s01_bst = count_words(lst_eng_words, 0.001)
-    s1_bst = count_words(lst_eng_words, 0.01)
-    s10_bst = count_words(lst_eng_words, 0.1)
-    s20_bst = count_words(lst_eng_words, 0.2)
-    s30_bst = count_words(lst_eng_words, 0.3)
-    s40_bst = count_words(lst_eng_words, 0.4)
-    #s50_bst = count_words(lst_eng_words, 0.5)
-    #s60_bst = count_words(lst_eng_words, 0.6)
-    #s70_bst = count_words(lst_eng_words, 0.7)
-    #s80_bst = count_words(lst_eng_words, 0.8)
-    #s90_bst = count_words(lst_eng_words, 0.9)
-    #s100_bst = count_words(lst_eng_words, 1)
+    lst = []
+    for i in range(0, 20, 1):
+        print(i/100)
+        lst.append(count_words(lst_eng_words, i/100))
 
     timetoget_lst = []
-
-    timetoget_lst.extend([time_to_get(s01_bst), time_to_get(s1_bst), time_to_get(s10_bst), time_to_get(s20_bst), time_to_get(s30_bst), time_to_get(s40_bst)])
-
-
-    print("Detta är s1", time_to_get(s01_bst), s01_bst.size())
-    print("Detta är s1", time_to_get(s1_bst), s1_bst.size())
-    print("Detta är s1", time_to_get(s10_bst), s10_bst.size())
-    print("Detta är s2", time_to_get(s20_bst), s20_bst.size())
-    print("Detta är s3", time_to_get(s30_bst), s30_bst.size())
-    print("Detta är s3", time_to_get(s40_bst), s40_bst.size())
-    #print("Detta är s3", time_to_get(s50_bst), s50_bst.size())
-    #print("Detta är s3", time_to_get(s60_bst), s60_bst.size())
-    #print("Detta är s3", time_to_get(s70_bst), s70_bst.size())
-    #print("Detta är s3", time_to_get(s80_bst), s80_bst.size())
-    #print("Detta är s3", time_to_get(s90_bst), s90_bst.size())
-    #print("Detta är s3", time_to_get(s100_bst), s100_bst.size())
-
+    max_tree_depth = []
+    tree_size = []
+    for e in lst:
+        timetoget_lst.append(time_to_get(e))
+        max_tree_depth.append(e.max_depth())
+        tree_size.append(e.size())
 
     # plot time to get:
-    plt.plot([n for n in range(len(timetoget_lst))], timetoget_lst)
-    plt.title('"added words" vs "unique words" in ' + "eng=")
-    plt.xlabel("How long the thing is")
-    plt.ylabel("how long time it took")
+    plt.subplot(1, 2, 1)
+    plt.plot(tree_size, timetoget_lst)
+    plt.title('"time to get" vs "tree size" in ')
+    plt.xlabel("tree size")
+    plt.ylabel("time")
+    plt.subplot(1, 2, 2)
+    plt.plot(tree_size,  max_tree_depth)
+    plt.title('"max tree depth" vs "tree size"')
+    plt.xlabel("tree size")
+    plt.ylabel("max tree depth")
     plt.show()
-
-
-def read_words(path):
-    with open(path, "r",  encoding="utf-8") as file:
-        lst = file.read().split()
-        newlst = []
-        for e in lst:
-            if len(e):
-                newlst.append(e)
-    return newlst
 
 
 def count_words(lst, percent):
@@ -134,42 +112,13 @@ def count_words(lst, percent):
 
 def time_to_get(bist):
     start = time.time()
-    for i in range(1000000):
+    for i in range(int(1000000)):
         bist.get("()?!¨'´")
-        #if i % (1000000/10) == 0:
-        #    print(i/1000000 * 100, "%")
     return((time.time() - start)/1000000)
 
 
 path_eng = os.getcwd() + "\\test_100K.txt"
+input("fds")
 lst_eng_words = read_words(path_eng)
+input("nu är det kört")
 menu()
-
-
-
-
-
-quit()
-
-start = time.time()
-for i in range(small_test):
-    smallbst.get("()?!¨'´")
-    if i % (small_test/10) == 0:
-        print(i/small_test * 100, "%")
-print((time.time() - start)/small_test)
-
-start = time.time()
-for i in range(medium_test):
-    mediumbst.get("()?!¨'´")
-    if i % (medium_test/10) == 0:
-        print(i/medium_test * 100, "%")
-print((time.time() - start)/medium_test)
-print(mediumbst.max_depth())
-
-start = time.time()
-for i in range(big_test):
-    bigbst.get("()?!¨'´")
-    if i % (big_test/10) == 0:
-        print(i/big_test * 100, "%")
-print((time.time() - start)/big_test)
-print((bigbst.max_depth()))
