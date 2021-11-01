@@ -1,6 +1,6 @@
 # mini-project
 
-**Mini-project report**
+## Mini-project report
 Medlemmar: Filip Ström, Isabel Silva Henriksson, Joakim Forsberg, Miliam Eliasson
 
 Program: Civilingenjörsprogrammet i Teknisk Matematik
@@ -9,7 +9,7 @@ Kurs: 1DV501
 
 Inlämningsdatum: 
 
-**Introduktion**
+## introduktion
 
 I del tre skulle man använda sitt hash-set och sin bst-map förr att göra samma sak som i del ett. Man skulle räkna antalet unika ord i de två textfilerna med sitt hash-set.
 
@@ -41,20 +41,20 @@ hash_set.size()
  ```
 
 
-* holy grail words 
+**holy grail words**                 **english new words**             
 
-|most common words   | count    |
-|:------------------:|:-----:|
-| arthur             | 261|
-|launcelot           | 101|
-|knight              | 84 |
-|galahad             | 81 |
-|father              | 74 |
-|bedevere            | 68 |
-|knights             | 65 |
-|robin               | 58 |
-|guard               | 58 |
-|right               | 57 |
+|most common words   | count    ||most common words | count|
+|:------------------:|:-----:||:------------------:|:-----:|
+| arthur             | 261|| their           |6143|
+|launcelot           | 101| |about            |4606|
+|knight              | 84 ||there            |3926|
+|galahad             | 81 ||would            |3877|
+|father              | 74 ||people           |3799|
+|bedevere            | 68 ||which            |3571|
+|knights             | 65 ||after            |3014|
+|robin               | 58 ||years            |2984|
+|guard               | 58 ||first            |2887|
+|right               | 57 ||other            |2754|
 
 
 
