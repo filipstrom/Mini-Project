@@ -42,7 +42,7 @@ hash_set.size()
 
 
 * holy grail words 
-|          holygrail words            |
+
 |most common words   | count    |
 |:------------------:|:-----:|
 | arthur             | 261|
