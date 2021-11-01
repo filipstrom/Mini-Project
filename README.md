@@ -41,7 +41,7 @@ hash_set.size()
  ```
 
 
-**holy grail words**---------------**english new words**             
+**holy grail words**------------------------**english new words**             
 
 |most common words   | count    |most common words | count|
 |:------------------:|:-----:|:------------------:|:-----:|
