@@ -43,8 +43,7 @@ def part2():
     lst_words.extend(set(lst_eng_words))
     start = time.time()
     for e in range(len(lst_words)):
-        
-        
+  
         set_size_lst.append(e)
         
         start = time.time()
@@ -79,14 +78,17 @@ def part2():
 def part1():
     print("Part 1")
     lst = []
-    for i in range(0, 20, 1):
+    for i in range(0, 100, 1):
         print(i/100)
-        lst.append(count_words(lst_eng_words, i/100))
+        lst.append(count_words(set(lst_eng_words), i/100))
 
     timetoget_lst = []
     max_tree_depth = []
     tree_size = []
+    i = 0
     for e in lst:
+        i +=1
+        print(i / len(lst))
         timetoget_lst.append(time_to_get(e))
         max_tree_depth.append(e.max_depth())
         tree_size.append(e.size())
@@ -94,7 +96,7 @@ def part1():
     # plot time to get:
     plt.subplot(1, 2, 1)
     plt.plot(tree_size, timetoget_lst)
-    plt.title('"time to get" vs "tree size" in ')
+    plt.title('"time to get" vs "tree size"')
     plt.xlabel("tree size")
     plt.ylabel("time")
     plt.subplot(1, 2, 2)
