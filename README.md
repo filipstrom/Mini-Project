@@ -137,8 +137,8 @@ Den första grafen gjorde vi genom att räkna ut hur många ord som var längre 
     plt.ylabel("word count")
     plt.show()
 ```
-![](.words_per_wordlenght_monty_python/.png)
-![](.words_per_wordlenght_monty_python/.png)
+![](./words_per_wordlenght_monty_python/.png)
+![](./words_per_wordlenght_monty_python/.png)
 
 
 Den andra grafen gjorde vi genom att lägga in alla ord i ett hashSet och ta reda på ifall det är nya ord eller ord som redan finns i hashset som vi lägger till. 
