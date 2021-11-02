@@ -41,7 +41,7 @@ hash_set.size()
  ```
 
 
-**holy grail words**------------------------**english new words**             
+**holy grail words**-------------------------**english news words**             
 
 |most common words   | count    |most common words | count|
 |:------------------:|:-----:|:------------------:|:-----:|
@@ -57,4 +57,15 @@ hash_set.size()
 |right               | 57 |other            |2754|
 
 
+holy grail unique word count: 1365
+english news unique word count: 80999 
 
+
+
+| -| Holy grail     |English news |
+|:------------------:|:---------:|:---------:|
+| unique words            | 1365| 80999           |
+|   max bucket size        | 5|      8       |
+| max Bstmap depth              | 23 | 41          |
+
+What is the max bucket size for HashSet, and the max depth for BstMap, after having added all the words in the two large word files? (Hence, four different numbers.)
