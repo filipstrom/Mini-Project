@@ -137,6 +137,9 @@ Den första grafen gjorde vi genom att räkna ut hur många ord som var längre 
     plt.ylabel("word count")
     plt.show()
 ```
+
+fdsafdsa'
+![](./added_words_vs_unique_words_english_100k.png)
 ![](./words_per_wordlength_english_100k/.png)
 ![](./words_per_wordlenght_monty_python/.png)
 
