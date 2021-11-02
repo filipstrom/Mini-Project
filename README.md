@@ -125,7 +125,9 @@ english news unique word count: 80999
 
 ## Part 4: Plotting
 
-I del fyra skulle man importera mathplotlib, som används för att rita grafer, för att rita två olika grafer, varav två av varje (en för varje fil). Den första grafen är ett histogram som visar hur många ord det finns i filerna för olika längder på orden där antalet ord är y-axeln och längderna är x-axeln.
+Vi började med att importera mathplotlib, som används för att rita grafer, för att rita fyra olika grafer, två för varje fil. 
+
+Den första grafen gjorde vi genom att räkna ut hur många ord som var längre än 4 och lägga in dem i en bst.
 
 ```python
     plt.bar(lstx, lsty)
@@ -135,8 +137,11 @@ I del fyra skulle man importera mathplotlib, som används för att rita grafer, 
     plt.ylabel("word count")
     plt.show()
 ```
+![](.words_per_wordlenght_monty_python/.png)
+![](.words_per_wordlenght_monty_python/.png)
 
-Den andra grafen är ett linjediagram som visar hur många ord som lagts till i ens hash-set och hur många av orden som är unika där antalet ord är x-axeln och unika ord är y-axeln.
+
+Den andra grafen gjorde vi genom att lägga in alla ord i ett hashSet och ta reda på ifall det är nya ord eller ord som redan finns i hashset som vi lägger till. 
 
 ```python
     plt.plot([n for n in range(len(lsty))], lsty)
@@ -147,3 +152,4 @@ Den andra grafen är ett linjediagram som visar hur många ord som lagts till i 
 ```
 
 ![](./added_words_vs_unique_words_english_100k.png)
+![](./added_words_vs_unique_words_monty_python.png)
