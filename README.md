@@ -155,3 +155,50 @@ Den andra grafen gjorde vi genom att lägga in alla ord i ett hashSet och ta red
 
 ![](./added_words_vs_unique_words_english_100k.png)
 ![](./added_words_vs_unique_words_monty_python.png)
+
+
+## Part 5: Measuring time
+
+Vi började med att mäta hur lång tid det tar att leta igenom ett binärt sök träd. Sedan så mäter vi hur trädets djup ändras med takt av storleken på trädet.
+
+```python
+    for e in lst:
+        timetoget_lst.append(time_to_get(e))
+        max_tree_depth.append(e.max_depth())
+        tree_size.append(e.size())
+```
+![](./Part5_1.png)
+
+
+Sedan så mätte vi hur lång tid det tog att lägga till något i ett hashset, och hur rehashing påverkade tiden. Vi mätte också hur stora buckets och hur många buckets det blev beroende på hur många element vi la till i hashettet.
+![](./Part5_2.png)
+
+
+
+I den sista delen, den femte, mäter man tiden på mätningar i klasserna. Först i binära sökträdet, där tar man tre olika storlekar på trädet och söker igenom trädet lika många gånger i varje storlek på trädet för att se hur tiden påverkas (Linjärt? logaritmiskt? exponentiellt? m.m).
+Med information man fått gör man två olika grafer, en som visar söktiden per storlek på träd, och en som visar djupet på trädet mot trädets storlek.
+Den andra delen av del fem för uppgiften är att kolla hur lång tid det tar att lägga till nya element i sitt hash-set och hur rehashing påverkar denna tid. Sedan ska man även kolla "bucket"-djupet. 
+Man ska använda informationen för att rita grafer på tiden det tar att lägga in en viss mängd element (en större mängd) och hur set-storlekar påverkar detta genom rehashing. Man ska även rita en graf som visar hur "bucket"-djupet påverkas av setstorlekar.
+
+
+
+### Technical issues 
+
+uppgift 2 var svårast att förstå i början då man behövde förstå olika begrepp och vad som menades med Binary search tree och Hash set. Dock var gick den väldigt fort när man väl förstog sig på dem termerna och hur det fungerade.
+Ett återkommande problem var att få koden att gå snabbt så man inte behöver vänta så länga på att den ska köras klart. Det problemet tog både tid att lösa men också tid då problemet var att det tar tid att köra.
+
+Vi har lärt oss att det tar tid att köra stora loopar och att gå igenom stora listor. Det vi skulle göra ifall vi hade mött på ett liknande problem är att så fort som möjligt lösa det så det inte tar upp onödigt tid i arbetet.
+
+Om vi hade haft mer tid så skulle vi kunnat få programmet att köra snabbare. Vi hade också då kunnat skriva om programmen så att de hade kört mer effeltivt och så att koden hade blivit kortare. Vi skulle också kunnat göra våra grafer mer exakta genom att köra fler tester och köra koden flera gånger. 
+
+
+
+### Project issues
+
+Till en början var gruppen två separata grupper, men båda hade problem med kommunikation. Miliam och Isabels grupp fick tag i den tredje medlemmen som ej hade planer på att vara delaktig i projektet. Detsamma gällde Filip och Joakims grupp, de fick tag i sin tredje medlem, men denne sade att denne hade avslutat sin studietid.
+Därför samarbetade båda dessa grupper trots att de ej slagits ihop officiellt och hade daglig kontakt via chattprogrammet discord och i fysiska träffar på skolområde. Att grupperna ej var ihopslagna medförde dock några problem, till exempel kunde ej en repository skapas för båda grupper och därför brukades endast Joakims och Filips repository på gitlab, men inom någon blev det meddelat att gruperna skulle slås ihop och en ny repository skapades för alla gruppmedlemmar.
+Gruppmedlemmar hade inte alltid tillgång att medverka i de fysiska träffarna och då arbetades det istället hemifrån, imparallellt, men i största mån har alla detagit på träffarna.
+I början hade gruppen ett högt tempo och låg före tidsplanen, sedan halkades det lite efter och uppgifter gjordes i sista sekund vilket medförde försänkt kvalité över dessa uppgifter.
+Ingen del av projeketet kan tilldelas en specifik person utan allt har gjort tillsammans. Det är i största mån vi använt Filips dator till programmeringen och därför är han den som skrivit mest kod och arbetat mest med git medan övriga är runt omkring och delger idéer samt bidrar till programmeringen och en del i git.
+Alla som är med i gruppen har arbeta lika länge plus minus en timme och det ligger på ungefär 8 timmar i veckan utöver mötestillfällen.
+Det vi hade velat göra annorlunda är att inte skjuta upp vårat arbete för mycket. Vi har utöver detta lärt oss bra tekniker till samarbete.

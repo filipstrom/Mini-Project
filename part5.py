@@ -3,7 +3,6 @@ import os
 import time
 import matplotlib.pyplot as plt
 import HashSet as hs
-input()
 
 
 def read_words(path):
@@ -34,32 +33,43 @@ def menu():
 def part2():
     print("Part 2")
     time_lst = []
+    bucketsize_lst = []
     maxbucket_lst = []
     set_size_lst = []
+    set_size_lst2 = []
     hash_set = hs.HashSet()
     hash_set.init()
-    for e in range(len(lst_eng_words)):
-        if e % 1000 == 0:
-            set_size_lst.append(e)
-            for i in range(1000):
-                start_time = time.time()
-                hash_sett_copy = hash_set
-                hash_sett_copy.add(lst_eng_words[e-1000])
-                sum_time = time.time() - start_time
-            time_lst.append(sum_time/1000)
-        hash_set.add(lst_eng_words[e])
+    lst_words = []
+    lst_words.extend(set(lst_eng_words))
+    start = time.time()
+    for e in range(len(lst_words)):
+        
+        
+        set_size_lst.append(e)
+        
+        start = time.time()
+        hash_set.add(lst_words[e])
+        time_lst.append((time.time() - start)/1000)
 
         if e % 1000 == 0:
+            set_size_lst2.append(e)
             print(e / len(lst_eng_words) * 100)
+            bucketsize_lst.append(hash_set.bucket_list_size())
             maxbucket_lst.append(hash_set.max_bucket_size())
-    plt.subplot(1, 2, 1)
+    plt.subplot(1, 3, 1)
     plt.plot(set_size_lst, time_lst)
     plt.title('"time to add element" vs "hashset size"')
     plt.xlabel("hashset size")
     plt.ylabel("time")
 
-    plt.subplot(1, 2, 2)
-    plt.plot(set_size_lst, maxbucket_lst)
+    plt.subplot(1, 3, 2)
+    plt.plot(set_size_lst2, bucketsize_lst)
+    plt.title('"amount of buckets" vs "hashset size" in ' + "eng=")
+    plt.xlabel("hashset size")
+    plt.ylabel("amount of buckets")
+
+    plt.subplot(1, 3, 3)
+    plt.plot(set_size_lst2, maxbucket_lst)
     plt.title('"maxbucket size" vs "hashset size" in ' + "eng=")
     plt.xlabel("hashset size")
     plt.ylabel("maxbucket size")
@@ -98,6 +108,7 @@ def part1():
 def count_words(lst, percent):
     map = bst.BstMap()
     i = 0
+
     for n in lst:
         i += 1
         v = map.get(n)
@@ -118,7 +129,5 @@ def time_to_get(bist):
 
 
 path_eng = os.getcwd() + "\\test_100K.txt"
-input("fds")
 lst_eng_words = read_words(path_eng)
-input("nu är det kört")
 menu()
